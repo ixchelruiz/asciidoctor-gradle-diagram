@@ -1,0 +1,32 @@
+= {project-title}
+:author: {project-author}
+:revnumber: {project-version}
+:toclevels: 3
+:docinfo1:
+
+:includedir: {basedir}/src/docs/asciidoc
+
+== Introduction
+include::{includedir}/introduction.adoc[]
+
+== Diagram
+
+[ditaa]
+....
+                   +-------------+
+                   | Asciidoctor |-------+
+                   |   diagram   |       |
+                   +-------------+       | PNG out
+                       ^                 |
+                       | ditaa in        |
+                       |                 v
+ +--------+   +--------+----+    /---------------\
+ |        | --+ Asciidoctor +--> |               |
+ |  Text  |   +-------------+    |   Beautiful   |
+ |Document|   |   !magic!   |    |    Output     |
+ |     {d}|   |             |    |               |
+ +---+----+   +-------------+    \---------------/
+     :                                   ^
+     |          Lots of work             |
+     +-----------------------------------+
+....

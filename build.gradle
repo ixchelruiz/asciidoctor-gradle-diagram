@@ -1,0 +1,44 @@
+plugins {
+    id 'org.asciidoctor.jvm.convert' version '3.0.0-alpha.3'
+    id 'org.asciidoctor.jvm.pdf' version '3.0.0-alpha.3'
+}
+
+repositories {
+  mavenCentral()
+  jcenter()
+}
+
+asciidoctorj {
+    modules {
+        diagram.version '1.5.18'
+    }
+}
+
+asciidoctor {
+
+    outputOptions {
+        backends = ['html5'
+                    , 'pdf'
+        ]
+    }
+    logDocuments true
+    attributes =
+            [
+                    toc                    : 'left',
+                    doctype                : 'book',
+                    icons                  : 'font',
+                    encoding               : 'utf-8',
+                    sectlink               : true,
+                    sectanchors            : true,
+                    numbered               : true,
+                    linkattrs              : true,
+                    imagesdir              : 'images',
+                    'source-highlighter'   : 'coderay',
+                    'coderay-linenums-mode': 'table',
+                    'rootprojectdir'       : rootProject.projectDir.absolutePath,
+                    'basedir'              : projectDir
+            ]
+    sources {
+        include 'index.adoc'
+    }
+}
